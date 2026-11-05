@@ -1,0 +1,36 @@
+name: Offline checks
+
+on:
+  push:
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  test:
+    name: Python ${{ matrix.python }}
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    strategy:
+      fail-fast: false
+      matrix:
+        python: ['3.11', '3.13']
+    env:
+      PYTHONDONTWRITEBYTECODE: '1'
+    steps:
+      - name: Checkout
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+      - name: Python
+        uses: actions/setup-python@6d4fd22b20465ccc0f7354476588e8df7c9ca0e0 # v7.1.0
+        with:
+          python-version: ${{ matrix.python }}
+      - name: Install workbook inspection dependencies
+        run: python -m pip install -r requirements.txt
+      - name: Run full offline suite
+        run: python -B -W error::ResourceWarning -m unittest discover -s . -p 'test_*.py' -v
+      - name: Verify received-only workflow
+        run: python -B demo.py "$RUNNER_TEMP/pricelist-received-demo"
+      - name: Verify explicit synthetic import receipt workflow
+        run: python -B demo.py "$RUNNER_TEMP/pricelist-import-demo" --simulate-import

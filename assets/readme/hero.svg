@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="360" viewBox="0 0 1200 360" role="img" aria-labelledby="title desc">
+  <title id="title">Прайсы под контролем</title>
+  <desc id="desc">Автоматизация запроса и получения прайсов: локальные черновики писем, проверка XLS и XLSX, история обработки. Без отправки почты.</desc>
+  <rect width="1200" height="360" rx="24" fill="#0b0d10"/>
+  <g id="title-block" font-family="-apple-system, BlinkMacSystemFont, Segoe UI, sans-serif">
+    <text x="64" y="64" font-size="22" fill="#a5abb5" letter-spacing="1.5">PRICELIST REQUEST AUTOMATION</text>
+    <text x="60" y="161" font-size="80" font-weight="700" fill="#f5f6f7">Прайсы</text>
+    <text x="60" y="249" font-size="80" font-weight="700" fill="#f5f6f7">под контролем.</text>
+    <text x="64" y="310" font-size="26" fill="#a5abb5">Черновики писем. Проверка вложений. История обработки.</text>
+  </g>
+  <g id="format-labels" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="24" fill="#d5d9de" text-anchor="end">
+    <text x="1136" y="151">.EML</text>
+    <text x="1136" y="191">.XLS</text>
+    <text x="1136" y="231">.XLSX</text>
+  </g>
+</svg>
